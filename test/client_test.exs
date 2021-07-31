@@ -24,6 +24,7 @@ defmodule ConektaTest.ClientTest do
     test "should encode customer struct" do
 
       new_order = %Conekta.Order{
+          payment_status: "paid",
           currency: "MXN",
           customer_info: %{
               customer_id: "cus_2gXnQrxEpkdNfeeFT"
