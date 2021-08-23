@@ -51,10 +51,40 @@ defmodule ConektaTest.OrdersTest do
 
     end
 
+    test "should create an order for oxxo_cash" do
+
+        new_order = %Conekta.Order{
+            currency: "MXN",
+            customer_info: %{
+                customer_id: "cus_2gXuVHVD7n9ewPda4"
+            },
+            line_items: [%{
+                name: "Testing",
+                unit_price: 35_000,
+                quantity: 1
+            }],
+            charges: [%{
+                payment_method: %{
+                    type: "oxxo_cash",
+                    expires_at: 1599661683
+                }
+            }]
+        }
+
+        expected_mock = Mocks.OrdersMock.get_new_order_for_oxxo_cash_response()
+
+        with_mock Conekta.Client, [post_request: fn(_url, _params) -> expected_mock end] do
+
+            {:ok, content} = expected_mock
+            assert Poison.decode(content.body, as: %Conekta.OrdersCreateResponse{}) == Conekta.Orders.create(new_order)
+
+        end
+
+    end
+
     test "should create an order spei" do
 
       new_order = %Conekta.Order{
-          payment_status: "pending_payment",
           currency: "MXN",
           customer_info: %{
             name: "Fulanito Pérez",
@@ -84,6 +114,7 @@ defmodule ConektaTest.OrdersTest do
       end
 
   end
+
 
     test "should find an order" do
 
