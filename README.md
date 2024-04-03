@@ -137,4 +137,4 @@ Fork from **dev** and do a PR into **dev** again.
 
 ### License
 
-Developed by [Jorge Chavez](https://twitter.com/JorgeChavz). Available with [MIT License](https://github.com/echavezNS/conekta-elixir/blob/master/LICENSE).
+Available with [MIT License](https://github.com/echavezNS/conekta-elixir/blob/master/LICENSE).
