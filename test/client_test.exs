@@ -17,7 +17,7 @@ defmodule ConektaTest.ClientTest do
             type: "default"
         }]}
 
-        expected = "{\"payment_sources\":[{\"type\":\"default\",\"token\":\"token_2039989wei9229\"}],\"name\":\"Jorge\"}"
+        expected = "{\"payment_sources\":[{\"token\":\"token_2039989wei9229\",\"type\":\"default\"}],\"name\":\"Jorge\"}"
         assert expected == Conekta.Client.encode_params(customer)
     end
 

@@ -7,7 +7,7 @@ defmodule Conekta.Mixfile do
 
   def project do
     [app: :conekta,
-     version: "1.1.1",
+     version: "1.1.2",
      description: @description,
      name: "Conekta",
      elixir: "~> 1.10",
@@ -24,8 +24,8 @@ defmodule Conekta.Mixfile do
 
   defp deps do
     [{:credo, "~> 1.4", only: [:dev, :test], runtime: false},
-     {:httpoison, "~> 1.6"},
-     {:poison, "~> 5.0"},
+     {:httpoison, "~> 2.2"},
+     {:poison, "~> 5.0 or ~> 6.0"},
      {:mock, "~> 0.3.0", only: :test},
      {:ex_doc, "~> 0.22", only: :dev, runtime: false}]
   end
